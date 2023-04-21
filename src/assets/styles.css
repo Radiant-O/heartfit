@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.nav{
+    /* @apply  border-t-0 */
+}
+.top_nav{
+    @apply flex items-center bg-[#a1f65e] border-black border-b justify-between pt-2 pb-2 lg:px-16 px-8
+}
+.top_nav .logo{
+    @apply text-lg font-semibold
+}
+.auth{
+    @apply flex items-center gap-2 cursor-pointer
+}
+.bot_nav{
+    @apply flex items-center gap-5 lg:px-16 px-8 py-1 font-medium
+}
+.bot_nav p{
+    @apply cursor-pointer
+}
+.home_page{
+    @apply w-full
+}
+.home_page_items{
+    @apply px-8 lg:flex lg:items-center lg:px-16 lg:justify-between pb-10
+}
+.home_img{
+    @apply lg:w-[30%] pt-3
+}
+.home_cont_main{
+    @apply lg:text-5xl text-4xl text-left font-semibold py-3 leading-[3.5rem]
+}
+.home_cont_abt{
+    @apply text-lg font-medium leading-[2rem]
+}
+.auth_btn{
+    @apply flex items-center gap-6 pt-10
+}
+.auth_log_btn{
+    @apply border-black cursor-pointer border w-44 text-center py-2 text-lg font-medium
+}
+.auth_log_btn:hover{
+    @apply bg-black text-white
+}
+/* Auth Screen */
+.signup{
+    @apply flex items-center justify-between mx-48
+}
+.login{
+    @apply w-full
+}
+.auth_box{
+    @apply w-fit mx-auto mt-4
+}
+.login_text{
+    @apply text-lg text-center mt-9 lg:text-2xl font-semibold 
+}
+.auth_input{
+    @apply block py-3
+}
+.auth_input label{
+    @apply block pb-2 text-left uppercase text-sm font-semibold
+}
+.auth_input input{
+    @apply border border-black outline-none py-2 px-3 w-[130%] text-sm
+}
+.sign_btn{
+    @apply mt-8 mb-6 border bg-black text-white font-semibold text-base w-full text-center py-2 cursor-pointer ml-8 mx-auto
+}
+.sign_btn:hover{
+    @apply bg-white text-black border border-black
+}
+.sign_option{
+    @apply font-medium pl-16
+}
+.sign_option span{
+    @apply text-red-500 text-center italic cursor-pointer
+}
+.sign_benefits{
+    @apply border-2 border-gray-400 px-7 pt-4 pb-14
+}
+.benefit_text{
+    @apply text-2xl font-bold pb-4
+}
+.sign_benefits li{
+    @apply py-1 font-medium
+}
+/* BMI Calculator */
+.bmi{
+    @apply mx-auto max-w-2xl py-14 px-4 md:px-0
+}
+.bmi_head{
+    @apply font-black text-2xl md:text-4xl mb-10
+}
+.bmi_input{
+    @apply p-1.5 px-3.5 transition-colors rounded-md border-black focus:outline-black focus:outline-none shadow-md
+}
+.bmi_input_btn{
+    @apply px-3.5 py-1 transition-colors rounded-md border border-black bg-white enabled:hover:border-black enabled:focus:border-black focus:outline-none shadow-md
+}
+.bmi_input_btn:hover{
+    @apply bg-black text-white
+}
