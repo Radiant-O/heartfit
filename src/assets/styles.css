@@ -8,13 +8,13 @@
     box-sizing: border-box;
 }
 .nav{
-    /* @apply  border-t-0 */
+    /* background-color: #188958; */
 }
 .top_nav{
     @apply flex items-center bg-[#a1f65e] border-black border-b justify-between pt-2 pb-2 lg:px-16 px-8
 }
 .top_nav .logo{
-    @apply text-lg font-semibold
+    @apply text-lg font-semibold flex items-center gap-2
 }
 .auth{
     @apply flex items-center gap-2 cursor-pointer
@@ -41,10 +41,10 @@
     @apply text-lg font-medium leading-[2rem]
 }
 .auth_btn{
-    @apply flex items-center gap-6 pt-10
+    @apply  items-center gap-6 pt-10
 }
 .auth_log_btn{
-    @apply border-black cursor-pointer border w-44 text-center py-2 text-lg font-medium
+    @apply border-black cursor-pointer border w-44 text-center py-2 text-lg font-medium px-2
 }
 .auth_log_btn:hover{
     @apply bg-black text-white
@@ -80,7 +80,7 @@
 .sign_option{
     @apply font-medium pl-16
 }
-.sign_option span{
+.sign_option .span{
     @apply text-red-500 text-center italic cursor-pointer
 }
 .sign_benefits{
@@ -107,4 +107,145 @@
 }
 .bmi_input_btn:hover{
     @apply bg-black text-white
+}
+.result{
+    @apply mt-20
+}
+.main_result{
+    @apply text-3xl font-bold capitalize pb-5 sm:text-xl
+}
+.result_advise{
+    @apply py-4
+}
+.advise_one{
+    @apply font-medium text-lg
+}
+.advise_head{
+    @apply text-xl font-bold pb-2
+}
+.w_his{
+    @apply mb-4 text-[#888] font-normal
+}
+.w_head{
+    @apply text-center -mt-12
+}
+.current{
+    @apply flex flex-col justify-center items-center w-[200px] h-[200px] text-center bg-[#f8f8f8] rounded-full shadow-md border-4 border-[#188958] mx-auto mt-0 mb-[2rem]
+}
+.current span {
+    @apply block text-[3rem] font-bold mb-[0.5rem] 
+}
+.current small {
+    @apply text-[#888] italic
+}
+.weight_form{
+    @apply flex mb-[2rem]  border-[#aaa] border rounded-md overflow-hidden transition-all lg:w-[50%] justify-center mx-auto 
+}
+.weight_form .weight_form_num{
+    @apply appearance-none outline-none border-none pl-2  bg-white py-[0.2rem] text-[1.25rem] w-[70%]
+}
+.weight_form input[type="submit"]{
+    @apply appearance-none outline-none cursor-pointer border-l border-[#188958] bg-[#188958] px-2 pr-4 py-[0.2rem] text-white w-[30%]
+}
+.weight_form input[type="submit"]:hover{
+    @apply text-[#188958] bg-white
+}
+.canvas-box{
+    @apply w-[100%] max-w-[720px] bg-[#f6fff6] mb-8 p-[1rem] rounded-[0.5rem] shadow-md
+}
+.weight_history{
+    @apply mx-6
+}
+.weight_text{
+    @apply text-xl font-semibold
+}
+.weight-history ul{
+    @apply list-none p-0 m-0
+}
+.weight_list{
+    @apply flex justify-between items-center p-2
+}
+.weight_list:nth-child(even){
+    @apply bg-[#f6fff6]
+}
+.weight_list:last-of-type{
+    @apply border-b-0 
+}
+.weight_list span{
+    @apply block text-xl font-semibold mr-3
+}
+.weight_list small{
+    @apply text-[#888] italic
+}
+.select_exe{
+    @apply flex flex-col gap-2
+}
+.sel_workout{
+    @apply text-center font-semibold text-xl py-2
+}
+.select_exe select{
+    @apply border-black border rounded-md px-1 w-[50%] capitalize mx-auto outline-none py-1
+}
+.select_exe option{
+    @apply text-black border-y py-1 text-lg capitalize
+}
+.selected_exe{
+    @apply text-2xl font-semibold py-2 capitalize text-center
+}
+.workout_time{
+    @apply border bg-[#44d194] w-[70%] mx-auto rounded-xl text-center py-4
+}
+.workout_time h1{
+    @apply text-3xl font-bold text-white mb-4
+}
+.timer-time{
+    @apply text-lg lg:text-5xl font-normal lg:font-semibold my-5 flex justify-center items-center gap-2 px-3 lg:px-[1.3rem]
+}
+.about_page{
+    @apply w-[100%] h-[100vh] pt-10 lg:pt-2
+}
+.abt_page{
+    @apply flex flex-col lg:flex-row gap-10 lg:gap-24 w-[80%] mt-2 mx-auto border-black
+}
+.abt_img{
+    @apply lg:w-[350%]
+}
+.abt_text{
+    
+}
+.about_head{
+    @apply text-5xl font-semibold pb-5 text-center
+}
+.about_text{
+    @apply text-lg font-normal text-center pb-3 leading-7
+}
+.abt_btn{
+    @apply border bg-white mt-5 border-black text-center text-lg py-1 font-medium
+}
+.abt_btn:hover{
+    @apply bg-[#a1f65e] text-white
+}
+.feat_page{
+    @apply py-5
+}
+.feats{
+    @apply py-5 flex lg:flex-row flex-col flex-auto justify-between gap-10 px-10
+}
+.div_feat_img{
+    @apply w-fit
+}
+.feat_img{
+    @apply w-[600px] h-[240px]
+}
+.nav_link{
+    @apply py-1 px-1
+}
+.nav_link:hover{
+    @apply border-b-2 border-black  
+}
+.nav_link:active{
+    @apply border-b-2 border-black
+}
+.logo_img{
+    @apply w-[25px]
 }

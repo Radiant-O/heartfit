@@ -1,0 +1,38 @@
+{
+  "normal": {
+    "bpStatus": "Normal BP",
+    "advice": ["Regular Physical Activity", "Maintain a healthy balanced diet"]
+  },
+
+  "elevated": {
+    "bpStatus": "Elevated BP",
+    "advice": [
+      "Regular Physical Activity",
+      "Eat a diet rich in whole grains, fruits, vegetables and low-diary products and low in saturated fat and cholestrol"
+    ]
+  },
+
+  "stageone": {
+    "bpStatus": "Hypertension Stage 1",
+    "advice": [
+      "Regular Physical Activity",
+      "Take grains, vegetables and fruits(4-6 servings per day)",
+      "Sweets and added sugar (5 servings or fewer a week)"
+    ]
+  },
+
+  "stagetwo": {
+    "bpStatus": "Hypertension Stage II",
+    "advice": [
+      "Regular Physical Activity",
+      "Take grains, vegetables and fruits(4-6 servings per day)",
+      "Limit foods and beverages that are high in sodium",
+      "Limit alcohol intake and smoking"
+    ]
+  },
+
+  "critical": {
+    "bpStatus": "Hypertensive Crisis",
+    "advice": ["Consult you doctor immediately!!!"]
+  }
+}

@@ -1,23 +1,55 @@
 <script setup>
-import Navbar from '../components/navbar.vue';
+import { supabase } from "../supabase";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
+
+const email = ref("");
+const password = ref("");
+
+const errorMsg = ref(null);
+
+const handleSignIn = async () => {
+  try {
+    // Use the Supabase provided method to handle the signin
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.value,
+      password: password.value,
+    });
+    if (error) throw error;
+    router.push({ name: 'home' })
+  } catch (error) {
+    errorMsg.value = `Error: ${error.message}`;
+    setTimeout(() => {
+      errorMsg.value = null;
+    }, 5000)
+  }
+};
 </script>
 
 <template>
   <section class="login">
     <p class="login_text">Welcome Back..</p>
     <div class="auth_box">
-    <div class="auth_input">
-      <label for="email">Email</label>
-      <input type="text" class="email" />
-    </div>
-    <div class="auth_input">
-      <label for="password">Password</label>
-      <input type="password" class="email" />
-    </div>
-    <p class="sign_btn">Login</p>
-
-    <p class="sign_option">Not a member yet? <span>Join Here</span></p>
+      <div v-if="errorMsg" class="errormsg">
+        <p class="text-red-500">{{ errorMsg }}</p>
+      </div>
+      <form @submit.prevent="handleSignIn">
+        <div class="auth_input">
+          <label for="email">Email</label>
+          <input type="mail" v-model="email" class="email" />
+        </div>
+        <div class="auth_input">
+          <label for="password">Password</label>
+          <input type="password" v-model="password" class="email" />
+        </div>
+        <button type="submit" class="sign_btn">Login</button>
+      </form>
+      <p class="sign_option">
+        Not a member yet?
+        <router-link to="/signup" class="span">Join Here</router-link>
+      </p>
     </div>
   </section>
 </template>

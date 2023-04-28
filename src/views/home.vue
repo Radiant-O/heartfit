@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+import { computed } from "@vue/reactivity";
+import auth from "../stores/auth";
+
+const user = computed(() => auth.state.user);
+
+</script>
 
 <template>
   <section class="home_page">
@@ -10,7 +16,8 @@
         </p>
 
         <div class="auth_btn">
-          <p class="auth_log_btn">join us</p>
+          <router-link v-if="!user" to="/signup" class="auth_log_btn">join us</router-link>
+          <router-link v-if="user" to="/feature" class="auth_log_btn">Explore our Features</router-link>
           <!-- <p class="auth_log_btn">log in</p> -->
         </div>
       </div>

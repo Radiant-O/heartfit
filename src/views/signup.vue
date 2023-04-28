@@ -1,5 +1,33 @@
 <script setup>
-import Navbar from '../components/navbar.vue';
+import { ref } from "vue";
+import { supabase } from "../supabase"
+import { useRouter } from "vue-router"
+
+const router = useRouter();
+
+const fname = ref("");
+const username = ref("");
+const email = ref("");
+const password = ref("");
+
+const errorMsg = ref(null);
+
+const handleSignUp = async () => {
+  try {
+        // Use the Supabase provided method to handle the signin
+        const { error } = await supabase.auth.signUp({
+          email: email.value,
+          password: password.value,
+        });
+        if (error) throw error;
+        router.push({ name: "home" });
+      } catch (error) {
+        errorMsg.value = error.message;
+        setTimeout(() => {
+          errorMsg.value = null;
+        }, 5000);
+      };
+}
 
 </script>
 
@@ -8,24 +36,26 @@ import Navbar from '../components/navbar.vue';
     <div>
     <p class="login_text">SIGN UP</p>
     <div class="auth_box">
+      <div v-if="errorMsg" class="errormsg">
+        <p class="text-red-500">{{ errorMsg }}</p>
+      </div>
+      <form @submit.prevent="handleSignUp()" >
     <div class="auth_input">
-      <input type="text" class="email" placeholder="First Name"/>
+      <input type="text" v-model="fname" class="email" placeholder="Full Name"/>
     </div>
     <div class="auth_input">
-      <input type="text" class="email" placeholder="Last Name"/>
+      <input type="mail" v-model="email"  class="email" placeholder="Email Address"/>
     </div>
     <div class="auth_input">
-      <input type="text" class="email" placeholder="Email Address"/>
+      <input type="text" v-model="username" class="email" placeholder="Username"/>
     </div>
     <div class="auth_input">
-      <input type="text" class="email" placeholder="Username"/>
+      <input type="password" v-model="password" class="email" placeholder="Password" />
     </div>
-    <div class="auth_input">
-      <input type="password" class="email" placeholder="Password" />
-    </div>
-    <p class="sign_btn">SIGNUP</p>
+    <button type="submit" class="sign_btn">SIGNUP</button>
+  </form>
 
-    <p class="sign_option">Already a member? <span>Sign In</span></p>
+    <p class="sign_option">Already a member? <router-link to="/login" class="span">Sign In</router-link></p>
 </div>
 </div>
 <div class="sign_benefits">
