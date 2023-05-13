@@ -1,9 +1,24 @@
 <script setup lang="ts">
+
 import { ref } from "vue";
 import FormField from "../components/formfield.vue";
+
 const height = ref("0");
 const weight = ref("0");
 const bodyMassIndex = ref(0);
+
+// interface IBmiv{
+//   bmiValue : bodyMassIndex;
+//   colorData : string;
+//   date: Date;
+// }
+
+// const bmiVal: IBmiv[] = [];
+
+// bmiVal.push[ {
+//   bmiVal.value = bodyMassIndex;
+// }]
+
 const colorData = ref<null | { color?: string; text?: string }>(null);
 const COLOR = [
   [(bmi: number) => bmi < 15.5, "#EF4444", "underweight"],
@@ -12,10 +27,12 @@ const COLOR = [
   [(bmi: number) => bmi >= 25 && bmi <= 30, "#F97316", "overweight"],
   [(bmi: number) => bmi > 30, "#EF4444", "obese"],
 ] as const;
+
 function getColor() {
   const data = COLOR.find(([predicate]) => predicate(bodyMassIndex.value));
   return { color: data?.[1], text: data?.[2] };
 }
+
 function calculateBodyMassIndex() {
   const _weight = parseFloat(weight.value);
   const _height = parseFloat(height.value);
@@ -27,6 +44,7 @@ function calculateBodyMassIndex() {
   const color = getColor();
   colorData.value = { color: color.color, text: color.text };
 }
+
 </script>
 
 <template>

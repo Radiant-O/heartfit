@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import exercise from "../assets/exercise.json";
 import { ref, computed, watch} from "vue";
 import { useStopwatchStore } from '../stores/timer'
@@ -67,9 +67,9 @@ watch(selectedWorkout, () => (workoutDescription.value = ""));
             <span class="time">{{stopwatch.stopwatch.hours}}H</span>:<span class="time">{{stopwatch.stopwatch.minutes}}M</span>:<span class="time">{{stopwatch.stopwatch.seconds}}S</span>
         </div>
        
-        <button class="btn play" v-if="!stopwatch.stopwatch.isRunning" @click="start()">Start</button>
-        <button class="btn pause" v-if="stopwatch.stopwatch.isRunning" @click="stopwatch.pause()">pause</button>
-        <button class="btn stop" @click="stopwatch.stop()" :disabled="isStarted == false">Stop</button>
+        <button class="btn play" v-if="!stopwatch.stopwatch.isRunning" @click="start()"><img src="../assets/img/small-play.png" alt=""></button>
+        <button class="btn pause" v-if="stopwatch.stopwatch.isRunning" @click="stopwatch.pause()"><img src="../assets/img/small-pause.png" alt=""></button>
+        <button class="btn stop" @click="stopwatch.stop()" :disabled="isStarted == false"><img src="../assets/img/stop.png" alt=""></button>
     </div>
   </section>
 </template>

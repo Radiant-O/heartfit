@@ -1,4 +1,5 @@
 <script setup>
+
 import auth from "../stores/auth";
 import { computed } from "vue";
 import { supabase } from "../supabase";
@@ -12,6 +13,7 @@ const logout = async () => {
   await supabase.auth.signOut();
   router.push({ name: "home" })
 }
+
 </script>
 
 <template>

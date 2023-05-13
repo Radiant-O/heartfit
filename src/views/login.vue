@@ -1,7 +1,12 @@
 <script setup>
+
 import { supabase } from "../supabase";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useShowLoadingStore } from "../stores/loading"
+
+const showLoading = useShowLoadingStore();
+
 
 const router = useRouter();
 
@@ -17,6 +22,9 @@ const handleSignIn = async () => {
       email: email.value,
       password: password.value,
     });
+    setTimeout(()=>{
+      
+    })
     if (error) throw error;
     router.push({ name: 'home' })
   } catch (error) {
@@ -26,7 +34,9 @@ const handleSignIn = async () => {
     }, 5000)
   }
 };
+
 </script>
+
 
 <template>
   <section class="login">
@@ -48,7 +58,7 @@ const handleSignIn = async () => {
       </form>
       <p class="sign_option">
         Not a member yet?
-        <router-link to="/signup" class="span">Join Here</router-link>
+        <router-link to="/signup" class="span">Join Us</router-link>
       </p>
     </div>
   </section>
