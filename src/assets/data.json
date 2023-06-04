@@ -1,4 +1,8 @@
 {
+  "low": {
+    "bpStatus": "Low BP",
+    "advice": ["Drink more water throughout the day", "Maintain a healthy balanced diet(High Sodium Food)", "Take more energy and soda drinks"]
+  },
   "normal": {
     "bpStatus": "Normal BP",
     "advice": ["Regular Physical Activity", "Maintain a healthy balanced diet"]
@@ -8,6 +12,7 @@
     "bpStatus": "Elevated BP",
     "advice": [
       "Regular Physical Activity",
+      "Limit alcohol intake",
       "Eat a diet rich in whole grains, fruits, vegetables and low-diary products and low in saturated fat and cholestrol"
     ]
   },
@@ -15,7 +20,7 @@
   "stageone": {
     "bpStatus": "Hypertension Stage 1",
     "advice": [
-      "Regular Physical Activity",
+      "Regular Exercise Activity",
       "Take grains, vegetables and fruits(4-6 servings per day)",
       "Sweets and added sugar (5 servings or fewer a week)"
     ]

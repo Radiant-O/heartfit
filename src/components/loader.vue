@@ -1,3 +1,6 @@
+<script setup>
+</script>
+
 <template>
   <div class="loadingio-spinner-spinner-wwau5nh3pfk">
     <div class="ldio-4z6x5s5yum">
@@ -31,8 +34,8 @@
   position: absolute;
   animation: ldio-4z6x5s5yum linear 1s infinite;
   background: #72de3e;
-  width: 6px;
-  height: 12px;
+  width: 8px;
+  height: 16px;
   border-radius: 3px / 6px;
   transform-origin: 3px 26px;
 }

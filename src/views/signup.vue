@@ -1,16 +1,13 @@
 <script setup>
 import Loader from "../components/loader.vue";
-import { ref, computed } from "vue";
+import { ref} from "vue";
 import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
-import { useShowLoadingStore } from "../stores/loading";
 
 
-// const showLoading = useShowLoadingStore();
 const router = useRouter();
 
-const showLoading = true;
-
+const active = ref(false);
 const fname = ref("");
 const username = ref("");
 const email = ref("");
@@ -20,25 +17,31 @@ const errorMsg = ref(null);
 
 const handleSignUp = async () => {
   try {
+    active.value = true;
     // Use the Supabase provided method to handle the signin
     const { error } = await supabase.auth.signUp({
       email: email.value,
       password: password.value,
     });
     if (error) throw error;
+    setTimeout(() => {
+      active.value = false;
+    }, 2000);
     router.push({ name: "home" });
   } catch (error) {
+    active.value = true;
     errorMsg.value = error.message;
     setTimeout(() => {
       errorMsg.value = null;
-    }, 5000);
+      active.value = false;
+    }, 1000);
   }
 };
 </script>
 
 <template>
   <section class="signup">
-    <div>
+    <div class="sign_box">
       <p class="login_text">SIGN UP</p>
       <div class="auth_box">
         <div v-if="errorMsg" class="errormsg">
@@ -78,8 +81,8 @@ const handleSignUp = async () => {
             />
           </div>
           <div class="loading">
-            <div class="loader">
-              <Loader v-if="showLoading = !showLoading" />
+            <div class="loader" v-if="active">
+              <Loader />
             </div>
           </div>
 
@@ -95,7 +98,7 @@ const handleSignUp = async () => {
     <div class="sign_benefits">
       <p class="benefit_text">Key Benefits:</p>
       <ul>
-        <li>Customizeable fitness calendar</li>
+        <li>Track your weight</li>
         <li>Favorite workout exercise</li>
         <li>Helpful health, nutrition and fitness advice</li>
         <li>BMI Calculator</li>

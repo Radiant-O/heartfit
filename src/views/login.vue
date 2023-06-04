@@ -41,7 +41,7 @@ const handleSignIn = async () => {
 <template>
   <section class="login">
     <p class="login_text">Welcome Back..</p>
-    <div class="auth_box">
+    <div class="auth_box login_box ">
       <div v-if="errorMsg" class="errormsg">
         <p class="text-red-500">{{ errorMsg }}</p>
       </div>

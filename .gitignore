@@ -13,7 +13,7 @@ dist
 dist-ssr
 coverage
 *.local
-
+src/views/bmiCalc.vue
 /cypress/videos/
 /cypress/screenshots/
 

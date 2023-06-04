@@ -26,7 +26,7 @@ const logout = async () => {
         <p v-if="user" @click="logout">Logout</p>
       </div>
     </div>
-    <div class="bot_nav">
+    <div class="bot_nav animate__animated animate__backInLeft animate__slow">
       <router-link to="/" class="nav_link">Home</router-link>
       <router-link to="/about" class="nav_link">About</router-link>
       <router-link v-if="user" to="/feature" class="nav_link">Features</router-link>

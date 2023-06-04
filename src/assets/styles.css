@@ -11,7 +11,7 @@
     /* background-color: #188958; */
 }
 .top_nav{
-    @apply flex items-center bg-[#a1f65e] border-black border-b justify-between pt-2 pb-2 lg:px-16 px-8
+    @apply flex items-center bg-[#a1f65e] justify-between pt-3 pb-3 lg:px-16 px-8
 }
 .top_nav .logo{
     @apply text-lg font-semibold flex items-center gap-2
@@ -51,16 +51,20 @@
 }
 /* Auth Screen */
 .signup{
-    @apply flex items-center justify-between mx-48
+    @apply flex items-center justify-between mx-7 lg:mx-48
 }
 .login{
     @apply w-full
 }
+
 .auth_box{
-    @apply w-fit mx-auto mt-4
+    @apply w-full lg:w-fit mx-auto mt-4
 }
+/* .login_box{
+    @apply w-full 
+} */
 .login_text{
-    @apply text-lg text-center mt-9 lg:text-2xl font-semibold 
+    @apply  text-lg text-center ml-12  lg:ml-0 mt-9 lg:text-2xl font-semibold 
 }
 .auth_input{
     @apply block py-3
@@ -89,12 +93,15 @@
 .benefit_text{
     @apply text-2xl font-bold pb-4
 }
+.sign_benefits{
+    @apply hidden lg:block
+}
 .sign_benefits li{
     @apply py-1 font-medium
 }
 /* BMI Calculator */
 .bmi{
-    @apply mx-auto max-w-2xl py-14 px-4 md:px-0
+    @apply mx-auto max-w-2xl pt-8 pb-14 px-4 md:px-0
 }
 .bmi_head{
     @apply font-black text-2xl md:text-4xl mb-10
@@ -107,6 +114,12 @@
 }
 .bmi_input_btn:hover{
     @apply bg-black text-white
+}
+.gen{
+    @apply flex gap-2
+}
+.gen label{
+    @apply text-lg font-medium
 }
 .result{
     @apply mt-20
@@ -159,23 +172,27 @@
 .weight_text{
     @apply text-xl font-semibold
 }
-.weight-history ul{
-    @apply list-none p-0 m-0
+.weight-history table{
+    @apply list-none p-0 mt-5 
 }
-.weight_list{
-    @apply flex justify-between items-center p-2
+/* .weight_list{
+    @apply flex justify-between items-center p-2 border border-black
 }
 .weight_list:nth-child(even){
     @apply bg-[#f6fff6]
 }
+
 .weight_list:last-of-type{
-    @apply border-b-0 
+     
 }
 .weight_list span{
     @apply block text-xl font-semibold mr-3
 }
 .weight_list small{
     @apply text-[#888] italic
+} */
+.gend{
+    @apply flex flex-row gap-28
 }
 .select_exe{
     @apply flex flex-col gap-2
@@ -229,7 +246,7 @@
     @apply py-5
 }
 .feats{
-    @apply py-5 flex lg:flex-row flex-col flex-auto justify-between gap-10 px-10
+    @apply py-5 flex lg:flex-row flex-col lg:w-full lg:mx-0  md:w-[50%] md:mx-auto  justify-between gap-10 px-10
 }
 .div_feat_img{
     @apply w-fit

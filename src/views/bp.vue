@@ -2,50 +2,60 @@
 import { ref } from "vue";
 import FormField from "../components/formfield.vue";
 import data from "../assets/data.json";
+import Backarrow from "../components/backarrow.vue";
 
-const systolic = ref("0");
-const diastolic = ref("0");
+const sys = ref();
+const dia = ref();
+// const alert = ref("");
 
 function between(x, min, max) {
   return x >= min && x <= max;
 }
 
+
 function getBloodPressureStatus() {
-  const _s = parseInt(systolic.value);
-  const _d = parseInt(diastolic.value);
+  const _s = sys.value;
+  const _d = dia.value;
 
   
+  // if (_s <= 39.9 || _d <= 39.0){
+  //   alert("Invalid Systolic or Diastolic Input");
+  // } else if(_s < 371 || _d < 361){
+  //   alert("Invalid Systolic or Diastolic Input");
+  // }
+
   if (!_s || !_d) {
     return;
-  } else if (_s < 120 && between(_d, 20, 80)) {
+  } else if (between(_s, 40, 90) && between(_d, 40, 60)) {
+    return data.low;
+  } else if (between(_s, 91, 120) && between(_d, 61, 80)) {
     return data.normal;
-  } else if (between(_s, 120, 129) && between(_d, 20, 80)) {
+  } else if (between(_s, 120, 129) && between(_d, 61, 80)) {
     return data.elevated;
   } else if (between(_s, 130, 139) && between(_d, 80, 89)) {
     return data.stageone;
   } else if (between(_s, 140, 179) && between(_d, 90, 119)) {
     return data.stagetwo;
-  } else if (_s >= 180 && _d >= 120) {
+  } else if (between(_s, 180, 370) && between(_d, 120, 360)) {
     return data.critical;
-  }
-} 
+  } 
 
-
-
+}
 </script>
 
 <template>
+  <Backarrow />
   <section class="bmi">
     <h1 class="bmi_head">Blood Pressure Tracker</h1>
 
-
+    <form @submit.prevent="getBloodPressureStatus()">
       <FormField label="Systolic Level">
         <input
           required
           type="number"
           min="1"
           max="1000"
-          v-model="systolic"
+          v-model="sys"
           class="bmi_input"
           placeholder="180"
         />
@@ -57,29 +67,33 @@ function getBloodPressureStatus() {
           type="number"
           min="1"
           max="1000"
-          v-model="diastolic"
+          v-model="dia"
           class="bmi_input"
           placeholder="60"
         />
       </FormField>
 
-      <!-- <button type="submit" @click="getBloodPressureStatus()" class="bmi_input_btn">Submit</button> -->
+      <button type="submit" class="bmi_input_btn">Submit</button>
 
       <div class="result" v-if="getBloodPressureStatus()">
-        <p class="main_result">Current Condition: {{ getBloodPressureStatus()?.bpStatus }}</p>
-        <p class="advise_head">RECOMMENDATIONS:</p>
-        <p class="result_advice" v-for="advise in getBloodPressureStatus()?.advice">
-        <span class="advise_one">{{ advise }}</span>
+        <p class="main_result">
+          Current Condition: {{ getBloodPressureStatus()?.bpStatus }}
         </p>
-        
+        <p class="advise_head">RECOMMENDATIONS:</p>
+        <p
+          class="result_advice"
+          v-for="advise in getBloodPressureStatus()?.advice"
+        >
+          <span class="advise_one">{{ advise }}.</span>
+        </p>
       </div>
-      <p class="mt-10 text-5xl font-bold" v-else>
+      <!-- <p class="mt-10 text-5xl font-bold" v-else>
         <span class="block"></span>
         <span class="block text-xl capitalize leading-10"
           >Waiting for input...</span
         >
-      </p>
-    
+      </p> -->
+    </form>
   </section>
 </template>
 
