@@ -1,9 +1,8 @@
 <script setup>
 import Loader from "../components/loader.vue";
-import { ref} from "vue";
+import { ref } from "vue";
 import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
-
 
 const router = useRouter();
 
@@ -16,6 +15,7 @@ const password = ref("");
 const errorMsg = ref(null);
 
 const handleSignUp = async () => {
+  
   try {
     active.value = true;
     // Use the Supabase provided method to handle the signin
@@ -34,12 +34,13 @@ const handleSignUp = async () => {
     setTimeout(() => {
       errorMsg.value = null;
       active.value = false;
-    }, 1000);
+    }, 1500);
   }
 };
 </script>
 
 <template>
+  <div class="nems">
   <section class="signup">
     <div class="sign_box">
       <p class="login_text">SIGN UP</p>
@@ -54,6 +55,7 @@ const handleSignUp = async () => {
               v-model="fname"
               class="email"
               placeholder="Full Name"
+              required
             />
           </div>
           <div class="auth_input">
@@ -62,6 +64,7 @@ const handleSignUp = async () => {
               v-model="email"
               class="email"
               placeholder="Email Address"
+              required
             />
           </div>
           <div class="auth_input">
@@ -70,6 +73,7 @@ const handleSignUp = async () => {
               v-model="username"
               class="email"
               placeholder="Username"
+              required
             />
           </div>
           <div class="auth_input">
@@ -78,6 +82,7 @@ const handleSignUp = async () => {
               v-model="password"
               class="email"
               placeholder="Password"
+              required
             />
           </div>
           <div class="loading">
@@ -91,7 +96,7 @@ const handleSignUp = async () => {
 
         <p class="sign_option">
           Already a member?
-          <router-link to="/login" class="span">Sign In</router-link>
+          <router-link to="/login" class="span text-green-600">Sign In</router-link>
         </p>
       </div>
     </div>
@@ -107,6 +112,7 @@ const handleSignUp = async () => {
       </ul>
     </div>
   </section>
+</div>
 </template>
 
 <style scoped>

@@ -22,11 +22,11 @@ const logout = async () => {
       <router-link to="/" class="logo"><span><img src="../assets/icons/heart.jpg" class="logo_img"></span>HeartFit</router-link>
       <div class="auth">
         <img src="../assets/icons/UserAccount.png" class="user_auth"/>
-        <router-link v-if="!user" :to="{name: 'login'}">Login</router-link>
+        <router-link class="text-green-700 font-bold" v-if="!user" :to="{name: 'login'}">Login</router-link>
         <p v-if="user" @click="logout">Logout</p>
       </div>
     </div>
-    <div class="bot_nav animate__animated animate__backInLeft animate__slow">
+    <div class="bot_nav">
       <router-link to="/" class="nav_link">Home</router-link>
       <router-link to="/about" class="nav_link">About</router-link>
       <router-link v-if="user" to="/feature" class="nav_link">Features</router-link>
@@ -34,4 +34,11 @@ const logout = async () => {
   </nav>
 </template>
 
-<style></style>
+<style scoped>
+*{
+  color: white;
+}
+.router-link-exact-active.nav_link{
+    @apply text-green-700
+ }
+</style>

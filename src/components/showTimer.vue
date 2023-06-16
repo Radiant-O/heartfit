@@ -35,7 +35,7 @@ const readOptions = () => {
 const options = reactive({
   workTime: readOptions().workTime ? readOptions()
   .workTime 
-  : 20,
+  : 0,
   shortBreakTime: readOptions().shortBreakTime
     ? readOptions()
     .shortBreakTime
@@ -50,8 +50,6 @@ const options = reactive({
 const saveOptions = () => {
   localStorage.setItem("workTime", String(options.workTime));
   localStorage.setItem("shortBreakTime", String(options.shortBreakTime));
-  // localStorage.setItem('longBreakTime', String(options.longBreakTime));
-  // localStorage.setItem('turns', String(options.turns));
   localStorage.setItem(
     "enableNotifications",
     String(options.enableNotifications)
@@ -67,7 +65,8 @@ const timer = setInterval(() => {
   if (!isPaused.value) {
     timeRemain.value--;
     if (timeRemain.value === 0) {
-      nextState();
+      // nextState();
+      isPaused.value = true
     }
   }
 }, 1000);
@@ -94,6 +93,7 @@ const sendNotification = () => {
 const curTime = computed(() => {
   const minutes = Math.floor(timeRemain.value / 60);
   const seconds = timeRemain.value % 60;
+  // const minutes = seconds*60
   return { min: minutes, sec: seconds };
 });
 
@@ -121,13 +121,6 @@ const nextState = () => {
     // turnCount.value++;
     timeRemain.value = options.workTime * 60;
   }
-  //else {
-  //     if (turnCount.value % options.turns === 0 && turnCount.value !== 1) {
-  //         timeRemain.value = options.longBreakTime * 60;
-  //     } else {
-  //         timeRemain.value = options.shortBreakTime * 60;
-  //     }
-  // }
 };
 
 watch(

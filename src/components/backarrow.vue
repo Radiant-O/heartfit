@@ -5,11 +5,14 @@ const goBack = () => {
     router.back();
 }
 </script>
+
+
 <template>
     <div class="back_icon">
         <img @click="goBack()" src="../assets/icons/back_btn.png">
     </div>
 </template>
+
 
 <style scoped>
 .back_icon{

@@ -3,6 +3,7 @@ import exercise from "../assets/exercise.json";
 import { ref, computed, watch} from "vue";
 import Backarrow from "../components/backarrow.vue";
 import ShowTimer from "../components/showTimer.vue";
+import PreLoader from "../components/preLoader.vue";
 
 const isSelect = ref(false);
 
@@ -52,6 +53,8 @@ watch(selectedWorkout, () => (workoutDescription.value = ""));
 </script>
 
 <template>
+  <PreLoader/>
+  <div class="nems nh">
   <Backarrow />
   <section class="workout bmi">
     <h3 class="bmi_head w_head">Exercise</h3>
@@ -75,11 +78,11 @@ watch(selectedWorkout, () => (workoutDescription.value = ""));
         </option>
       </select>
     </div>
-    <div  v-if="selectedWorkout">
+    <div class="workout_content"  v-if="selectedWorkout">
       <p class="selected_exe">{{ selectedWorkout }}</p>
       <p class="abt_exercise">{{ desp }}</p>
-      <p class="body_part">Targeted Body Part: {{ bodyPart }}</p>
-      <p class="body_part">Click the link for tutorial video <a :href="youLink" target="_blank">{{ youLink }}</a></p>
+      <p class="body_part text-xl capitalize"><span class="text-xl font-semibold">Targeted Body Part</span>: {{ bodyPart }}</p>
+      <p class="body_part text-xl"><span class="text-xl font-semibold">Click the link for tutorial video</span>: <a :href="youLink" target="_blank" class="text-red-400">{{ youLink }}</a></p>
       <!-- <div class="workout_time">
         <h1 v-if="!stopwatch.stopwatch.isRunning">Just do it!</h1>
         <h1 v-else>Keep Going...</h1>
@@ -94,6 +97,7 @@ watch(selectedWorkout, () => (workoutDescription.value = ""));
       <ShowTimer />
     </div>
   </section>
+</div>
 </template>
 
 <style scoped>
@@ -138,5 +142,8 @@ img {
   padding: 0.5rem 1rem;
   text-align: center;
   border-radius: 0.5rem;
+}
+.nh{
+  @apply pb-[14rem]
 }
 </style>

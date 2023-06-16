@@ -16,6 +16,7 @@ coverage
 src/views/bmiCalc.vue
 /cypress/videos/
 /cypress/screenshots/
+.env
 
 # Editor directories and files
 .vscode/*
@@ -26,3 +27,6 @@ src/views/bmiCalc.vue
 *.njsproj
 *.sln
 *.sw?
+
+
+

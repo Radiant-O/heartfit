@@ -1,17 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&family=Pacifico&family=Poppins:ital,wght@0,300;0,500;0,600;1,600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+/* font-family: 'Open Sans', sans-serif;
+font-family: 'Pacifico', cursive;
+font-family: 'Poppins', sans-serif; */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 .nav{
     /* background-color: #188958; */
 }
 .top_nav{
-    @apply flex items-center bg-[#a1f65e] justify-between pt-3 pb-3 lg:px-16 px-8
+    @apply flex items-center justify-between pt-3 pb-3 lg:px-16 px-8
 }
 .top_nav .logo{
     @apply text-lg font-semibold flex items-center gap-2
@@ -20,7 +26,7 @@
     @apply flex items-center gap-2 cursor-pointer
 }
 .bot_nav{
-    @apply flex items-center gap-5 lg:px-16 px-8 py-1 font-medium
+    @apply flex bg-transparent items-center gap-5 lg:px-16 px-8 py-1 font-medium
 }
 .bot_nav p{
     @apply cursor-pointer
@@ -34,29 +40,37 @@
 .home_img{
     @apply lg:w-[30%] pt-3
 }
+.home_img img{
+    @apply lg:w-[200%]
+} 
 .home_cont_main{
-    @apply lg:text-5xl text-4xl text-left font-semibold py-3 leading-[3.5rem]
+    @apply lg:text-5xl text-4xl text-left font-open-sans font-semibold py-3 leading-[3.5rem]
 }
 .home_cont_abt{
-    @apply text-lg font-medium leading-[2rem]
+    @apply text-lg leading-[2rem] font-open-sans
+}
+.hreree{
+    @apply font-normal font-open-sans
 }
 .auth_btn{
     @apply  items-center gap-6 pt-10
 }
 .auth_log_btn{
-    @apply border-black cursor-pointer border w-44 text-center py-2 text-lg font-medium px-2
+    @apply border-white cursor-pointer border w-fit text-center py-2 text-lg font-medium px-4
 }
 .auth_log_btn:hover{
-    @apply bg-black text-white
+    @apply bg-green-700 text-white border-none
 }
 /* Auth Screen */
 .signup{
-    @apply flex items-center justify-between mx-7 lg:mx-48
+    @apply flex items-center justify-between mx-7 lg:mx-48 pb-1 lg:h-[75vh] h-[80vh]
 }
 .login{
-    @apply w-full
+    @apply w-full lg:h-[69vh] h-[80vh]
 }
-
+.sign_box{
+    @apply w-full lg:w-fit -mt-14 lg:-mt-0
+}
 .auth_box{
     @apply w-full lg:w-fit mx-auto mt-4
 }
@@ -67,25 +81,25 @@
     @apply  text-lg text-center ml-12  lg:ml-0 mt-9 lg:text-2xl font-semibold 
 }
 .auth_input{
-    @apply block py-3
+    @apply block py-3 w-[70%] pl-[13%] lg:w-full lg:pl-0
 }
 .auth_input label{
     @apply block pb-2 text-left uppercase text-sm font-semibold
 }
 .auth_input input{
-    @apply border border-black outline-none py-2 px-3 w-[130%] text-sm
+    @apply text-black border border-black outline-none py-2 px-3 w-[130%] text-sm
 }
 .sign_btn{
-    @apply mt-8 mb-6 border bg-black text-white font-semibold transition ease-in-out delay-300 text-base w-full text-center py-2 cursor-pointer ml-8 mx-auto
+    @apply mt-8 mb-6 border text-white font-semibold transition ease-in-out delay-300 text-base w-[60%] lg:w-full text-center py-2 cursor-pointer lg:ml-8 ml-[20%] lg:mx-auto
 }
 .sign_btn:hover{
-    @apply bg-white text-black border border-black translate-x-1 scale-90 duration-300
+    @apply bg-green-800 text-white translate-x-1 scale-90 duration-300
 }
 .sign_option{
     @apply font-medium pl-16
 }
 .sign_option .span{
-    @apply text-red-500 text-center italic cursor-pointer
+    @apply text-center italic cursor-pointer
 }
 .sign_benefits{
     @apply border-2 border-gray-400 px-7 pt-4 pb-14
@@ -107,16 +121,16 @@
     @apply font-black text-2xl md:text-4xl mb-10
 }
 .bmi_input{
-    @apply p-1.5 px-3.5 transition-colors rounded-md border-black focus:outline-black focus:outline-none shadow-md
+    @apply p-1.5 px-3.5 transition-colors rounded-md text-black border-black focus:outline-black focus:outline-none shadow-md
 }
 .bmi_input_btn{
-    @apply px-3.5 py-1 transition-colors rounded-md border border-black bg-white enabled:hover:border-black enabled:focus:border-black focus:outline-none shadow-md
+    @apply px-3.5 py-1 transition-colors rounded-md border text-black border-black bg-white enabled:hover:border-black enabled:focus:border-black focus:outline-none shadow-md
 }
 .bmi_input_btn:hover{
     @apply bg-black text-white
 }
 .gen{
-    @apply flex gap-2
+    @apply flex gap-2 cursor-pointer
 }
 .gen label{
     @apply text-lg font-medium
@@ -143,25 +157,25 @@
     @apply text-center -mt-12
 }
 .current{
-    @apply flex flex-col justify-center items-center w-[200px] h-[200px] text-center bg-[#f8f8f8] rounded-full shadow-md border-4 border-[#188958] mx-auto mt-0 mb-[2rem]
+    @apply flex flex-col justify-center items-center w-[200px] h-[200px] text-center bg-slate-800 rounded-full shadow-md border-4 border-[#188958] mx-auto mt-0 mb-[2rem]
 }
 .current span {
     @apply block text-[3rem] font-bold mb-[0.5rem] 
 }
 .current small {
-    @apply text-[#888] italic
+    @apply text-white italic
 }
 .weight_form{
-    @apply flex mb-[2rem]  border-[#aaa] border rounded-md overflow-hidden transition-all lg:w-[50%] justify-center mx-auto 
+    @apply flex mb-[2rem] rounded-md overflow-hidden transition-all lg:w-[50%] justify-center mx-auto 
 }
 .weight_form .weight_form_num{
-    @apply appearance-none outline-none border-none pl-2  bg-white py-[0.2rem] text-[1.25rem] w-[70%]
+    @apply appearance-none outline-none border-none pl-2  bg-white py-[0.2rem] text-[1.25rem] w-[65%] text-black
 }
 .weight_form input[type="submit"]{
-    @apply appearance-none outline-none cursor-pointer border-l border-[#188958] bg-[#188958] px-2 pr-4 py-[0.2rem] text-white w-[30%]
+    @apply appearance-none outline-none cursor-pointer border-l border-[#188958] bg-[#188958] px-2 pr-4 py-[0.2rem] text-white w-[35%]
 }
 .weight_form input[type="submit"]:hover{
-    @apply text-[#188958] bg-white
+    @apply text-white bg-transparent border-white border
 }
 .canvas-box{
     @apply w-[100%] max-w-[720px] bg-[#f6fff6] mb-8 p-[1rem] rounded-[0.5rem] shadow-md
@@ -175,22 +189,6 @@
 .weight-history table{
     @apply list-none p-0 mt-5 
 }
-/* .weight_list{
-    @apply flex justify-between items-center p-2 border border-black
-}
-.weight_list:nth-child(even){
-    @apply bg-[#f6fff6]
-}
-
-.weight_list:last-of-type{
-     
-}
-.weight_list span{
-    @apply block text-xl font-semibold mr-3
-}
-.weight_list small{
-    @apply text-[#888] italic
-} */
 .gend{
     @apply flex flex-row gap-28
 }
@@ -209,6 +207,12 @@
 .selected_exe{
     @apply text-2xl font-semibold py-2 capitalize text-center
 }
+.workout_content{
+    @apply text-center 
+}
+.body_part{
+    @apply leading-5
+}
 .workout_time{
     @apply border bg-[#44d194] w-[70%] mx-auto rounded-xl text-center py-4
 }
@@ -219,31 +223,29 @@
     @apply text-lg lg:text-5xl font-normal lg:font-semibold my-5 flex justify-center items-center gap-2 px-3 lg:px-[1.3rem]
 }
 .about_page{
-    @apply w-[100%] h-[100vh] pt-10 lg:pt-2
+    @apply w-[100%] lg:h-[100vh] bg-slate-800 -mt-[5.8rem] pt-[5.8rem] bg-fixed pb-10;
 }
 .abt_page{
-    @apply flex flex-col lg:flex-row gap-10 lg:gap-24 w-[80%] mt-2 mx-auto border-black
+    @apply flex flex-col lg:flex-row gap-10 lg:gap-24 w-[90%] mt-2 mx-auto border-black
 }
 .abt_img{
-    @apply lg:w-[350%]
+    @apply lg:w-[150%]
 }
-.abt_text{
-    
-}
+
 .about_head{
     @apply text-5xl font-semibold pb-5 text-center
 }
 .about_text{
-    @apply text-lg font-normal text-center pb-3 leading-7
+    @apply text-[17px] font-normal text-center pb-3 leading-8
 }
 .abt_btn{
-    @apply border bg-white mt-5 border-black text-center text-lg py-1 font-medium
+    @apply border text-black  border-white text-center text-lg py-1 font-medium
 }
 .abt_btn:hover{
-    @apply bg-[#a1f65e] text-white
+    @apply bg-green-700 border-none
 }
 .feat_page{
-    @apply py-5
+    @apply py-5 w-[100vw] lg:h-[100vh] bg-slate-800 bg-fixed -mt-[5.8rem] pt-[5.8rem]
 }
 .feats{
     @apply py-5 flex lg:flex-row flex-col lg:w-full lg:mx-0  md:w-[50%] md:mx-auto  justify-between gap-10 px-10
@@ -257,12 +259,31 @@
 .nav_link{
     @apply py-1 px-1
 }
-.nav_link:hover{
-    @apply border-b-2 border-black  
-}
-.nav_link:active{
-    @apply border-b-2 border-black
-}
+/* .nav_link:hover{
+    @apply border-b-2 border-green-700
+} */
+
 .logo_img{
     @apply w-[25px]
+}
+.nxt_icon{
+    @apply w-[40px] float-right mr-10 lg:mr-20 -mt-12 mb-10
+}
+.abt_bp{
+    @apply mt-10
+}
+.abt_bp .top_bp{
+    @apply pt-3  text-2xl capitalize
+}
+.bp_texts{
+    @apply mt-9 leading-6
+}
+.bp_words{
+    @apply mt-3 pb-2 leading-[1.6rem] justify-normal
+}
+.bp_p{
+    @apply py-1 ml-5
+}
+.nems{
+    @apply w-[100vw] min-h-fit text-white bg-slate-800 -mt-[5.8rem] pt-[5.8rem] pb-[4rem] bg-fixed
 }

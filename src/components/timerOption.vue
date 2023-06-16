@@ -72,8 +72,8 @@
 
     input {
         text-align: right;
-        border: none;
-        background-color: #E5E5E5;
+        border: 1px solid white;
+        background-color: transparent;
         padding: 0 0.5rem;
     }
 

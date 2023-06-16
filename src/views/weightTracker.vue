@@ -3,22 +3,20 @@ import { ref, shallowRef, computed, watch, nextTick, onMounted } from "vue";
 import Chart from "chart.js/auto";
 import Backarrow from "../components/backarrow.vue";
 import { supabase } from "../supabase";
+import PreLoader from "../components/preLoader.vue";
 
 const weights = ref([]);
 const weightChartEl = ref(null);
 const weightChart = shallowRef(null);
 const weightInput = ref(0);
 const date = new Date().toLocaleDateString();
-const msgs = ref("");
+let msgs = ref("");
+
 
 //Get Weight on page load
 onMounted(() => {
   getWeight();
 });
-
-// const currentWeight = computed(() => {
-//   return weights.value.sort((a, b) => b.date - a.date)[0] ||  0 ;
-// });
 
 const currentWeight = computed(() => {
   return weights.value[weights.value.length - 1] || { weight: 0 };
@@ -26,7 +24,8 @@ const currentWeight = computed(() => {
 
 //Add Weight
 const addWeight = async () => {
-  // const _weightValue = weightInput.value cvx
+const auth = supabase.auth.getUser();
+  // const _weightValue = weightInput.value 
   if (weightInput <= 0) {
     return (msgs.value = "Invalid Weight Value!!!");
   }
@@ -53,12 +52,12 @@ const addWeight = async () => {
 };
 
 //Delete Weight
-const deleteWeight = async () => {
-  try {
-    const { error } = await supabase.from("weightTracker").delete().eq("id", 1);
-    if (error) throw error;
-  } catch (error) {}
-};
+// const deleteWeight = async () => {
+//   try {
+//     const { error } = await supabase.from("weightTracker").delete().eq("id", user.id);
+//     if (error) throw error;
+//   } catch (error) {}
+// };
 
 //Fetch weight from supabase
 const getWeight = async () => {
@@ -73,7 +72,6 @@ const getWeight = async () => {
 
       const weightFetch = data.map((wei) => {
         return weights.value.push({
-          id: wei.id,
           weight: wei.weightInput,
           date: wei.date,
         });
@@ -82,10 +80,10 @@ const getWeight = async () => {
     
     }
   } catch (error) {
-    // msgs = `Error: ${error.message}`;
-    // setTimeout(() => {
-    //   msgs.value = false;
-    // }, 2000);
+    msgs = `Error: ${error.message}`;
+    setTimeout(() => {
+      msgs.value = false;
+    }, 2000);
   }
 };
 
@@ -167,6 +165,9 @@ watch(
 </script>
 
 <template>
+
+  <PreLoader/>
+  <div class="nems">
   <Backarrow />
   <section class="bmi">
     <h1 class="bmi_head w_head">Weight Tracker</h1>
@@ -177,7 +178,8 @@ watch(
       <small>Current weight (kg)</small>
     </div>
 
-    <small class="font-light text-sm text-red-600">{{ msgs }}</small>
+    <small class="font-light text-sm text-red-600 text-center">{{ msgs }}</small>
+    <!-- <small class="font-light text-sm text-red-600">{{ msgss }}</small> -->
     <form @submit.prevent="addWeight" class="weight_form">
       <input
         class="weight_form_num"
@@ -213,13 +215,18 @@ watch(
       </div>
     </div>
   </section>
+  <div class="nxt_icon">
+        <router-link to="/feature/workout"><img src="../assets/icons/right-arrow.png"></router-link>
+        <p>Next</p>
+    </div>
+  </div>
 </template>
 
 <style scoped>
 table,
 th,
 td {
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 10px;
   border-collapse: collapse;
   border-style: solid;
@@ -233,6 +240,6 @@ td {
   padding: auto;
 }
 tr:nth-child(even) {
-  @apply bg-[#f6fff6];
+  @apply bg-green-900;
 }
 </style>

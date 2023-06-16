@@ -4,11 +4,15 @@ import { ref } from "vue";
 import { supabase } from "./supabase";
 import auth from "./stores/auth";
 
+
+
+
 const appReady = ref(null);
 const user = supabase.auth.getUser();
 
 if (!user) {
   appReady.value = true;
+  
 }
 
 supabase.auth.onAuthStateChange((_, session) => {

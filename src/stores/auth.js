@@ -2,6 +2,7 @@ import { reactive } from "vue";
 
 const state = reactive({
   user: null,
+  returnUrl: null,
 });
 
 const methods = {

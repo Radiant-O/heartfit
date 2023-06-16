@@ -12,13 +12,13 @@ const user = computed(() => auth.state.user);
         <p class="home_cont_main">
           Your One-Stop <br />
           Shop for <br />
-          Fitness and Health
+          <span class="text-5xl text-green-700">FITNESS</span> and <span class="text-5xl text-green-700">HEALTH</span>.
         </p>
-        <p class="home_cont_abt">
-          Achieve Your Health Goals with Our All-in-One Fitness App.
+        <p class="home_cont_abt hreree">
+          Achieve your health goals with our all-in-one fitness app.
         </p>
-        <p class="home_cont_abt">
-          Transform Your Health: <br />Monitor Blood Pressure, <br />Manage
+        <p class="home_cont_abt mt-5">
+          <span class="font-bold text-2xl font-open-sans">Transform Your Health:</span> <br />Monitor Blood Pressure, <br />Manage
           Weight, and <br />Achieve Your Goals with HeartFit
         </p>
 
@@ -32,11 +32,18 @@ const user = computed(() => auth.state.user);
           <!-- <p class="auth_log_btn">log in</p> -->
         </div>
       </div>
-      <div class="home_img animate__animated animate__backInUp animate__slow">
-        <img src="../assets/img/womanexer.jpg" alt="" />
-      </div>
+      <!-- <div class="home_img animate__animated animate__backInUp animate__slow">
+        <img src="../assets/img/run.png" alt="" />
+      </div> -->
     </div>
   </section>
 </template>
 
-<style></style>
+<style scoped>
+*{
+  color: white;
+}
+.home_page{
+  @apply lg:bg-big-screen bg-small-screen bg-center bg-fixed bg-no-repeat bg-cover w-[100vw] h-[100vh] -mt-[5.8rem] pt-[5.8rem]
+}
+</style>
